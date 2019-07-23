@@ -12,6 +12,9 @@
 		801AC30322E6E96400B2E2C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30122E6E96400B2E2C6 /* Main.storyboard */; };
 		801AC30522E6E96500B2E2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30422E6E96500B2E2C6 /* Assets.xcassets */; };
 		801AC30822E6E96500B2E2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30622E6E96500B2E2C6 /* LaunchScreen.storyboard */; };
+		8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */; };
+		8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */; };
+		8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179622E6F949005ED1D2 /* DiaryEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		801AC30422E6E96500B2E2C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801AC30722E6E96500B2E2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801AC30922E6E96500B2E2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8091179422E6F5EF005ED1D2 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
+		8091179622E6F949005ED1D2 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		801AC2FC22E6E96400B2E2C6 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				8091179022E6EF35005ED1D2 /* Utilities */,
 				801AC30F22E6EBA400B2E2C6 /* Models */,
 				801AC31022E6EBB000B2E2C6 /* Views */,
 				801AC31122E6EBB900B2E2C6 /* Controllers */,
@@ -67,6 +74,8 @@
 		801AC30F22E6EBA400B2E2C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8091179622E6F949005ED1D2 /* DiaryEntry.swift */,
+				8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +95,14 @@
 				801AC2FF22E6E96400B2E2C6 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8091179022E6EF35005ED1D2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,8 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */,
+				8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */,
 				801AC30022E6E96400B2E2C6 /* ViewController.swift in Sources */,
 				801AC2FE22E6E96400B2E2C6 /* AppDelegate.swift in Sources */,
+				8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +380,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8091179422E6F5EF005ED1D2 /* Diary.xcdatamodel */,
+			);
+			currentVersion = 8091179422E6F5EF005ED1D2 /* Diary.xcdatamodel */;
+			path = Diary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 801AC2F222E6E96400B2E2C6 /* Project object */;
 }
