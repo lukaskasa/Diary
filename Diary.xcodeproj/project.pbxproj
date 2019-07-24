@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		801AC2FE22E6E96400B2E2C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AC2FD22E6E96400B2E2C6 /* AppDelegate.swift */; };
-		801AC30022E6E96400B2E2C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AC2FF22E6E96400B2E2C6 /* ViewController.swift */; };
+		801AC30022E6E96400B2E2C6 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */; };
 		801AC30322E6E96400B2E2C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30122E6E96400B2E2C6 /* Main.storyboard */; };
 		801AC30522E6E96500B2E2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30422E6E96500B2E2C6 /* Assets.xcassets */; };
 		801AC30822E6E96500B2E2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30622E6E96500B2E2C6 /* LaunchScreen.storyboard */; };
 		8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */; };
 		8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */; };
 		8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179622E6F949005ED1D2 /* DiaryEntry.swift */; };
+		8091179A22E70006005ED1D2 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179922E70006005ED1D2 /* EntryCell.swift */; };
+		8091179C22E79358005ED1D2 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		801AC2FA22E6E96400B2E2C6 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801AC2FD22E6E96400B2E2C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		801AC2FF22E6E96400B2E2C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		801AC30222E6E96400B2E2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801AC30422E6E96500B2E2C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801AC30722E6E96500B2E2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8091179422E6F5EF005ED1D2 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
 		8091179622E6F949005ED1D2 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		8091179922E70006005ED1D2 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
+		8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				8091179022E6EF35005ED1D2 /* Utilities */,
+				8091179822E6FC74005ED1D2 /* Datasource & Delegate */,
 				801AC30F22E6EBA400B2E2C6 /* Models */,
 				801AC31022E6EBB000B2E2C6 /* Views */,
 				801AC31122E6EBB900B2E2C6 /* Controllers */,
@@ -92,7 +97,8 @@
 		801AC31122E6EBB900B2E2C6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				801AC2FF22E6E96400B2E2C6 /* ViewController.swift */,
+				801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */,
+				8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,6 +109,14 @@
 				8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8091179822E6FC74005ED1D2 /* Datasource & Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8091179922E70006005ED1D2 /* EntryCell.swift */,
+			);
+			path = "Datasource & Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +192,10 @@
 			files = (
 				8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */,
 				8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */,
-				801AC30022E6E96400B2E2C6 /* ViewController.swift in Sources */,
+				801AC30022E6E96400B2E2C6 /* DiaryListViewController.swift in Sources */,
+				8091179C22E79358005ED1D2 /* DiaryDetailViewController.swift in Sources */,
 				801AC2FE22E6E96400B2E2C6 /* AppDelegate.swift in Sources */,
+				8091179A22E70006005ED1D2 /* EntryCell.swift in Sources */,
 				8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukaskasakaitis.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,7 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukaskasakaitis.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

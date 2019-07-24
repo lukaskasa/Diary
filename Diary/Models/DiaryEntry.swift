@@ -6,7 +6,6 @@
 //  Copyright © 2019 Lukas Kasakaitis. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 public class DiaryEntry: NSManagedObject {
