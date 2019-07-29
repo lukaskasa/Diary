@@ -7,19 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8007BD7D22E9EA7000F88D31 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD7C22E9EA7000F88D31 /* Mood.swift */; };
+		8007BD7F22E9F51500F88D31 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD7E22E9F51500F88D31 /* LocationManager.swift */; };
+		8007BD8222E9F59E00F88D31 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD8122E9F59E00F88D31 /* LocationError.swift */; };
+		8007BD8422E9FCC300F88D31 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD8322E9FCC300F88D31 /* Coordinate.swift */; };
+		8007BD8622EADBD000F88D31 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD8522EADBD000F88D31 /* UIViewController.swift */; };
+		8007BD8B22EB191400F88D31 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007BD8A22EB191400F88D31 /* PhotoPickerManager.swift */; };
 		801AC2FE22E6E96400B2E2C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AC2FD22E6E96400B2E2C6 /* AppDelegate.swift */; };
 		801AC30022E6E96400B2E2C6 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */; };
 		801AC30322E6E96400B2E2C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30122E6E96400B2E2C6 /* Main.storyboard */; };
 		801AC30522E6E96500B2E2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30422E6E96500B2E2C6 /* Assets.xcassets */; };
 		801AC30822E6E96500B2E2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801AC30622E6E96500B2E2C6 /* LaunchScreen.storyboard */; };
+		807B321A22EC878800A76B87 /* EntryDetailDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807B321922EC878800A76B87 /* EntryDetailDatasource.swift */; };
+		807B321C22EC8F3B00A76B87 /* EntryDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807B321B22EC8F3B00A76B87 /* EntryDetailDelegate.swift */; };
 		8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */; };
 		8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */; };
 		8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179622E6F949005ED1D2 /* DiaryEntry.swift */; };
 		8091179A22E70006005ED1D2 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179922E70006005ED1D2 /* EntryCell.swift */; };
 		8091179C22E79358005ED1D2 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */; };
+		80FB180822E8582C00A4DF66 /* EntryDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB180722E8582C00A4DF66 /* EntryDatasource.swift */; };
+		80FB180A22E8583A00A4DF66 /* EntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB180922E8583A00A4DF66 /* EntryDelegate.swift */; };
+		80FB180C22E859C500A4DF66 /* DiaryEntryFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB180B22E859C500A4DF66 /* DiaryEntryFetchedResultsController.swift */; };
+		80FB180F22E8D2E200A4DF66 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB180E22E8D2E200A4DF66 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8007BD7C22E9EA7000F88D31 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		8007BD7E22E9F51500F88D31 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8007BD8122E9F59E00F88D31 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
+		8007BD8322E9FCC300F88D31 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		8007BD8522EADBD000F88D31 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		8007BD8A22EB191400F88D31 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 		801AC2FA22E6E96400B2E2C6 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801AC2FD22E6E96400B2E2C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
@@ -27,11 +45,17 @@
 		801AC30422E6E96500B2E2C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801AC30722E6E96500B2E2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801AC30922E6E96500B2E2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		807B321922EC878800A76B87 /* EntryDetailDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailDatasource.swift; sourceTree = "<group>"; };
+		807B321B22EC8F3B00A76B87 /* EntryDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailDelegate.swift; sourceTree = "<group>"; };
 		8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8091179422E6F5EF005ED1D2 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
 		8091179622E6F949005ED1D2 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		8091179922E70006005ED1D2 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
+		80FB180722E8582C00A4DF66 /* EntryDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDatasource.swift; sourceTree = "<group>"; };
+		80FB180922E8583A00A4DF66 /* EntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDelegate.swift; sourceTree = "<group>"; };
+		80FB180B22E859C500A4DF66 /* DiaryEntryFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryFetchedResultsController.swift; sourceTree = "<group>"; };
+		80FB180E22E8D2E200A4DF66 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,11 +69,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8007BD8022E9F58800F88D31 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				8007BD8122E9F59E00F88D31 /* LocationError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		8007BD8722EAE57E00F88D31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		801AC2F122E6E96400B2E2C6 = {
 			isa = PBXGroup;
 			children = (
 				801AC2FC22E6E96400B2E2C6 /* Diary */,
 				801AC2FB22E6E96400B2E2C6 /* Products */,
+				8007BD8722EAE57E00F88D31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +104,7 @@
 		801AC2FC22E6E96400B2E2C6 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				80FB180D22E8D2D200A4DF66 /* Extensions */,
 				8091179022E6EF35005ED1D2 /* Utilities */,
 				8091179822E6FC74005ED1D2 /* Datasource & Delegate */,
 				801AC30F22E6EBA400B2E2C6 /* Models */,
@@ -81,6 +122,7 @@
 			children = (
 				8091179622E6F949005ED1D2 /* DiaryEntry.swift */,
 				8091179322E6F5EF005ED1D2 /* Diary.xcdatamodeld */,
+				8007BD8022E9F58800F88D31 /* Error */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +141,7 @@
 			children = (
 				801AC2FF22E6E96400B2E2C6 /* DiaryListViewController.swift */,
 				8091179B22E79358005ED1D2 /* DiaryDetailViewController.swift */,
+				80FB180B22E859C500A4DF66 /* DiaryEntryFetchedResultsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,6 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				8091179122E6EF9E005ED1D2 /* CoreDataManager.swift */,
+				8007BD7E22E9F51500F88D31 /* LocationManager.swift */,
+				8007BD8A22EB191400F88D31 /* PhotoPickerManager.swift */,
+				8007BD8322E9FCC300F88D31 /* Coordinate.swift */,
+				8007BD7C22E9EA7000F88D31 /* Mood.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -114,9 +161,22 @@
 		8091179822E6FC74005ED1D2 /* Datasource & Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				80FB180922E8583A00A4DF66 /* EntryDelegate.swift */,
+				807B321B22EC8F3B00A76B87 /* EntryDetailDelegate.swift */,
+				80FB180722E8582C00A4DF66 /* EntryDatasource.swift */,
+				807B321922EC878800A76B87 /* EntryDetailDatasource.swift */,
 				8091179922E70006005ED1D2 /* EntryCell.swift */,
 			);
 			path = "Datasource & Delegate";
+			sourceTree = "<group>";
+		};
+		80FB180D22E8D2D200A4DF66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80FB180E22E8D2E200A4DF66 /* Date.swift */,
+				8007BD8522EADBD000F88D31 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +211,11 @@
 				TargetAttributes = {
 					801AC2F922E6E96400B2E2C6 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -190,13 +255,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807B321A22EC878800A76B87 /* EntryDetailDatasource.swift in Sources */,
 				8091179222E6EF9E005ED1D2 /* CoreDataManager.swift in Sources */,
+				807B321C22EC8F3B00A76B87 /* EntryDetailDelegate.swift in Sources */,
 				8091179722E6F949005ED1D2 /* DiaryEntry.swift in Sources */,
 				801AC30022E6E96400B2E2C6 /* DiaryListViewController.swift in Sources */,
 				8091179C22E79358005ED1D2 /* DiaryDetailViewController.swift in Sources */,
+				8007BD7D22E9EA7000F88D31 /* Mood.swift in Sources */,
 				801AC2FE22E6E96400B2E2C6 /* AppDelegate.swift in Sources */,
+				80FB180A22E8583A00A4DF66 /* EntryDelegate.swift in Sources */,
+				8007BD8B22EB191400F88D31 /* PhotoPickerManager.swift in Sources */,
+				8007BD8222E9F59E00F88D31 /* LocationError.swift in Sources */,
+				80FB180822E8582C00A4DF66 /* EntryDatasource.swift in Sources */,
+				80FB180C22E859C500A4DF66 /* DiaryEntryFetchedResultsController.swift in Sources */,
+				80FB180F22E8D2E200A4DF66 /* Date.swift in Sources */,
 				8091179A22E70006005ED1D2 /* EntryCell.swift in Sources */,
 				8091179522E6F5EF005ED1D2 /* Diary.xcdatamodeld in Sources */,
+				8007BD7F22E9F51500F88D31 /* LocationManager.swift in Sources */,
+				8007BD8622EADBD000F88D31 /* UIViewController.swift in Sources */,
+				8007BD8422E9FCC300F88D31 /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

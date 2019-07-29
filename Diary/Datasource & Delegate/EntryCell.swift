@@ -10,11 +10,15 @@ import UIKit
 
 class EntryCell: UITableViewCell {
     
-    
+    /// Outlets
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var moodImageView: UIImageView!
     @IBOutlet weak var creationDateLabel: UILabel!
+    @IBOutlet weak var updatedLabel: UILabel!
+    @IBOutlet weak var updatedDateLabel: UILabel!
     @IBOutlet weak var entryLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationStackView: UIStackView!
     
     
     static let reuseIdentifer = "EntryCell"
@@ -26,13 +30,6 @@ class EntryCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: true)
-        // Set BG Color
-    }
-    
-    // MARK: - Helper Methods
-    
-    func configure(_ entry: DiaryEntry) {
-        //photoImageView.image = entry.image as? UIImage
     }
     
 }
