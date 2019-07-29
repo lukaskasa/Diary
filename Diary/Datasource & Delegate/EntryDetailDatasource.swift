@@ -11,21 +11,29 @@ import CoreData
 
 class EntryDetailDatasource: EntryDatasource {
     
+    // MARK: - Properties
     let indexPath: IndexPath?
     
+    /// Intializes the tableview datasoruce object for the detail view
     init(tableView: UITableView, context: NSManagedObjectContext, viewController: UIViewController, indexPath: IndexPath?) {
         self.indexPath = indexPath
         super.init(tableView: tableView, context: context, viewController: viewController)
     }
     
+    /// The number of sections in the table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableview/1614924-numberofsections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections!.count > 0 ? 1 : 0
     }
 
+    /// The methods adopted by the object you use to manage data and provide cells for a table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableviewdatasource
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
 
+    /// Asks the data source for a cell to insert in a particular location of the table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614861-tableview
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EntryCell.reuseIdentifer, for: indexPath) as! EntryCell
         
@@ -40,6 +48,8 @@ class EntryDetailDatasource: EntryDatasource {
         return configureCell(cell, at: indexPath)
     }
     
+    // MARK: - Helper Methods
+    /// Configure a UITableViewCell given the cell and IndexPath
     override func configureCell(_ cell: EntryCell, at indexPath: IndexPath) -> UITableViewCell {
         let diaryEntry = fetchedResultsController.object(at: indexPath)
         

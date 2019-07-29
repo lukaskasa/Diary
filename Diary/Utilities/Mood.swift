@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Enum for mood image represented by case
 enum Mood: Int16 {
     case bad = 1, average = 2, good = 3
     

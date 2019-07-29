@@ -9,11 +9,14 @@
 import UIKit
 import CoreData
 
-
+/// NSFetchedResultsController
+/// Apple documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontroller
 class DiaryEntryFetchedResultsController: NSFetchedResultsController<DiaryEntry> {
     
+    /// MARK: Properties
     private let tableView: UITableView
     
+    /// Initializes a NSFetchedResultsController given the parameters
     init(fetchedRequest: NSFetchRequest<DiaryEntry>, managedObjectContext: NSManagedObjectContext, sectionNameKeyPath: String?, tableView: UITableView) {
         self.tableView = tableView
         super.init(fetchRequest: DiaryEntry.fetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: sectionNameKeyPath, cacheName: nil)
@@ -22,6 +25,7 @@ class DiaryEntryFetchedResultsController: NSFetchedResultsController<DiaryEntry>
     }
     
     // MARK: - Helper Methods
+    /// Fetches dataset
     func tryFetch() {
         do {
             try performFetch()
@@ -36,16 +40,20 @@ class DiaryEntryFetchedResultsController: NSFetchedResultsController<DiaryEntry>
 /// Apple Documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontrollerdelegate
 extension DiaryEntryFetchedResultsController: NSFetchedResultsControllerDelegate {
     
+    /// Notifies the receiver that the fetched results controller is about to start processing of one or more changes due to an add, remove, move, or update.
     /// Apple Documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontrollerdelegate/1622295-controllerwillchangecontent
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
     
+    /// Notifies the receiver that the fetched results controller has completed processing of one or more changes due to an add, remove, move, or update.
     /// Apple Documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontrollerdelegate/1622290-controllerdidchangecontent
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
+    /// Notifies the receiver of the addition or removal of a section
+    /// Apple documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontrollerdelegate/1622298-controller
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         
         switch type {
@@ -64,6 +72,7 @@ extension DiaryEntryFetchedResultsController: NSFetchedResultsControllerDelegate
         
     }
     
+    /// Notifies the receiver that a fetched object has been changed due to an add, remove, move, or update.
     /// Apple Documentation: https://developer.apple.com/documentation/coredata/nsfetchedresultscontrollerdelegate/1622296-controller
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         

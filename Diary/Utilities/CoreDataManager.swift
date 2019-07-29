@@ -14,7 +14,7 @@ final class CoreDataManager {
     /// Name of the Model to be managed by the Core Data Manager
     private let modelName: String
     
-    /// Initializes the CoreDataManager
+    /// Initializes the CoreDataManager using the given model name
     init(modelName: String) {
         self.modelName = modelName
     }
@@ -44,6 +44,7 @@ final class CoreDataManager {
 
 extension NSManagedObjectContext {
     
+    /// Save changes to the context store
     func saveChanges() {
         if self.hasChanges {
             do {

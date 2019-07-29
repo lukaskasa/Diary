@@ -80,6 +80,7 @@ class DiaryDetailViewController: UIViewController {
         }
     }
     
+    /// Action to trigger location search
     @IBAction func getLocation(_ sender: Any) {
         
         if !locationManager.isAuthorized {
@@ -97,6 +98,7 @@ class DiaryDetailViewController: UIViewController {
         
     }
     
+    /// Action to trigger photo picker
     @IBAction func pickPhoto(_ sender: Any) {
         photoPickerManager.presentPhotoPicker(animated: true)
     }
@@ -104,11 +106,13 @@ class DiaryDetailViewController: UIViewController {
     
     // MARK: - Helper Methods
     
+    /// Setup save button
     func setupSaveButton() {
         let saveButton = UIBarButtonItem(title: saveButtonText, style: .done, target: self, action: #selector(saveEntry))
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    /// Save the entry
     @objc func saveEntry() {
         
         if diaryEntry == nil {
@@ -140,13 +144,12 @@ class DiaryDetailViewController: UIViewController {
             }
             
         }
-        
-        managedObjectContext.saveChanges()
-        
         // Update Changes
+        managedObjectContext.saveChanges()
         navigationController?.popViewController(animated: true)
     }
     
+    /// Sets up view for existing entry
     func setDiaryEntry() {
         if let diaryEntry = diaryEntry {
             self.title = (diaryEntry.creationDate as Date).getReadableWith(weekday: false, day: true, year: true)
@@ -185,8 +188,11 @@ class DiaryDetailViewController: UIViewController {
     
 }
 
+/// Apple documentation: https://developer.apple.com/documentation/uikit/uitextviewdelegate
 extension DiaryDetailViewController: UITextViewDelegate {
 
+    /// Asks the delegate whether the specified text should be replaced in the text view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitextviewdelegate/1618630-textview
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let currentText = textView.text ?? ""
         
@@ -200,9 +206,11 @@ extension DiaryDetailViewController: UITextViewDelegate {
     }
     
     
-    // MARK: Helper methods
+    // MARK: Helper method
+    
+    /// Sets up the charachter count label with different colors using attributed strings
     func setCharacterCountLabel(with count: Int) {
-        var range = NSRange(location:0, length:1) // specific location. This means "range" handle 1 character at location 2
+        var range = NSRange(location:0, length:1)
         
         let greenColor = UIColor(red: 125/255, green: 156/255, blue: 91/255, alpha: 1.0)
         
@@ -224,6 +232,8 @@ extension DiaryDetailViewController: UITextViewDelegate {
 
 extension DiaryDetailViewController: LocationManagerDelegate {
     
+    /// Tells delegsated that location has been obtained
+    /// Obtains location (city and country name) from coordinate and sets up the button
     func obtainedCoordinates(_ coordinate: Coordinate) {
         
         locationManager.getCityFrom(coordinate) { place, error in
@@ -240,7 +250,7 @@ extension DiaryDetailViewController: LocationManagerDelegate {
         }
         
     }
-    
+    /// Informs delegate of failure
     func failedWithError(_ error: LocationError) {
         showAlert(with: "Error", and: error.localizedDescription)
     }
@@ -248,6 +258,7 @@ extension DiaryDetailViewController: LocationManagerDelegate {
 
 extension DiaryDetailViewController: PhotoPickerManagerDelegate {
     
+    /// Tells delegate that photo has been picked
     func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage) {
         
         manager.dismissPhotoPicker(animated: true) {

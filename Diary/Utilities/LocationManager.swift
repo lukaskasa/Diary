@@ -17,19 +17,25 @@ protocol LocationManagerDelegate: class {
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Properties
-    
     private var manager = CLLocationManager()
     private var decoder = CLGeocoder()
-    
-    // MARK: - Delegate properties
     weak var delegate: LocationManagerDelegate?
     
+    /**
+     Initializes the Location Manager
+     
+     - Parameters:
+        - delegate: the LocationManagerDelegate
+
+     - Returns: a location manager
+     */
     init(delegate: LocationManagerDelegate?) {
         self.delegate = delegate
         super.init()
         manager.delegate = self
     }
     
+    /// Property to store status of location services user permission
     var isAuthorized: Bool {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
@@ -39,6 +45,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    /// Requests the authorization of location services
     func requestLocationAuthorization() throws {
         let authorizationStatus = CLLocationManager.authorizationStatus()
         
@@ -51,12 +58,20 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    /// Requests the location
     func requestLocation() {
         manager.requestLocation()
     }
-    
-    typealias CLGeocodeCompletionHandler = ([CLPlacemark]?, Error?) -> Void
-    
+
+    /**
+     Gets the place infomation using the latitude and longitude
+     
+     - Parameters:
+        - coordinate: location coordinate
+        - completion: completionhandler for the reverseGeocodeLocation closure
+     
+     - Returns: a location manager
+     */
     func getCityFrom(_ coordinate: Coordinate, completionHandler completion: @escaping CLGeocodeCompletionHandler){
         let locale = Locale(identifier: "en_US")
         
@@ -75,13 +90,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     
     // MARK: - Delegate Methods
+    /// Apple documentation: https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate
     
+    /// Tells the delegate that the authorization status for the application changed.
+    /// Apple documentation: https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423701-locationmanager
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             requestLocation()
         }
     }
     
+    /// Tells the delegate that the location manager was unable to retrieve a location value.
+    /// Apple documentation: https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423786-locationmanager
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         guard let error = error as? CLError else {
@@ -98,6 +118,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    /// Tells the delegate that new location data is available.
+    /// Apple documentation: https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423615-locationmanager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             delegate?.failedWithError(.unableToFindLocation)

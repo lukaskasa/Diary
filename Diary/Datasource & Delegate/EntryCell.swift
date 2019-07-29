@@ -20,7 +20,7 @@ class EntryCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationStackView: UIStackView!
     
-    
+    // Cell Reuseidentifier
     static let reuseIdentifer = "EntryCell"
     
     override func awakeFromNib() {

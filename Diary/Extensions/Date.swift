@@ -10,6 +10,16 @@ import Foundation
 
 extension Date {
     
+    /**
+     Formats date using the specified parameters
+     
+     - Parameters:
+        - weekday: Bool
+        - day: Bool
+        - year: Bool
+     
+     - Returns: formatted date as a String
+     */
     func getReadableWith(weekday: Bool, day: Bool, year: Bool) -> String {
         let locale = Locale(identifier: "en_US_POSIX")
         
@@ -46,6 +56,12 @@ extension Date {
         return readableDate
     }
     
+    /**
+     Formats date into a MM/DD/YYYY format
+
+     
+     - Returns: formatted date as a String
+     */
     func formatDate() -> String {
         
         var formatted: String = ""

@@ -13,7 +13,6 @@ class DiaryListViewController: UITableViewController {
     
     // MARK: - Properties
     let searchController = UISearchController(searchResultsController: nil)
-    
     let managedObjectContext = CoreDataManager(modelName: "Diary").managedObjectContext
     
     lazy var delegate: EntryDelegate = {
@@ -36,7 +35,7 @@ class DiaryListViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    
+    /// Prepare for segue method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newEntry" {
             let diaryDetailViewController = segue.destination as! DiaryDetailViewController
@@ -52,11 +51,13 @@ class DiaryListViewController: UITableViewController {
     
     // MARK: Helper Methods
     
+    /// Set navigation bar title
     func setTitle() {
         let title = Date().getReadableWith(weekday: false, day: true, year: true)
         self.title = title
     }
     
+    /// Create button setup
     func setupCreateButton() {
         let pencilImage = UIImage(imageLiteralResourceName: "icn_write_post")
         let editButton = UIBarButtonItem(image: pencilImage, style: .plain, target: self, action: #selector(showDetail))
@@ -64,6 +65,7 @@ class DiaryListViewController: UITableViewController {
         navigationItem.rightBarButtonItem = editButton
     }
     
+    /// Setup the search bar
     func setupSearchBar() {
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.placeholder = "Search your diary entries"
@@ -76,8 +78,8 @@ class DiaryListViewController: UITableViewController {
         searchController.searchBar.delegate = self
     }
     
+    /// Perform segue to the detail view to create a new entry
     @objc func showDetail() {
-        // Perform multiple entries for one day
         performSegue(withIdentifier: "newEntry", sender: self)
     }
     
@@ -87,6 +89,8 @@ extension DiaryListViewController: UISearchResultsUpdating, UISearchBarDelegate 
     
     // MARK: - Delegate methods
     
+    /// Called when the search bar becomes the first responder or when the user makes changes inside the search bar.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uisearchresultsupdating/1618658-updatesearchresults
     func updateSearchResults(for searchController: UISearchController) {
 
         guard let searchTerm = searchController.searchBar.text else { return }
@@ -98,13 +102,15 @@ extension DiaryListViewController: UISearchResultsUpdating, UISearchBarDelegate 
         }
     }
     
-    
+    /// Tells the delegate that the cancel button was tapped.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uisearchbardelegate/1624314-searchbarcancelbuttonclicked
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         reloadData()
     }
     
     // MARK: - Helper methods
     
+    /// Filter results for using the entry and location for the predicate
     func filterResults(_ searchText: String) {
         let predicate: NSPredicate? = NSPredicate(format: "(entry contains [cd] %@) || (location contains [cd] %@)", searchText, searchText)
         dataSource.fetchedResultsController.fetchRequest.predicate = predicate
@@ -112,6 +118,7 @@ extension DiaryListViewController: UISearchResultsUpdating, UISearchBarDelegate 
         tableView.reloadData()
     }
     
+    /// Reload data
     func reloadData() {
         dataSource.fetchedResultsController.fetchRequest.predicate = nil
         dataSource.fetchedResultsController.tryFetch()

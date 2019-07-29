@@ -14,6 +14,7 @@ protocol PhotoPickerManagerDelegate: class {
     func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage)
 }
 
+/// Manager to handle the photo selection
 class PhotoPickerManager: NSObject {
     
     // MARK: - Properties
@@ -21,13 +22,14 @@ class PhotoPickerManager: NSObject {
     private let presentingController: UIViewController
     weak var delegate: PhotoPickerManagerDelegate?
     
-    /// Initizializer
+    /// Initializer
     init(presentingViewController: UIViewController) {
         self.presentingController = presentingViewController
         super.init()
         configure()
     }
     
+    /// Presents the image picker while handling authorization
     func presentPhotoPicker(animated: Bool) {
         
         let cameraMediaType = AVMediaType.video
@@ -50,10 +52,12 @@ class PhotoPickerManager: NSObject {
         
     }
     
+    /// Dismisses the image picker
     func dismissPhotoPicker(animated: Bool, completion: (() -> Void)?) {
         imagePickerController.dismiss(animated: animated, completion: completion)
     }
     
+    /// Configures the imagepicker while checking for the source availability
     private func configure() {
     
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -72,16 +76,17 @@ class PhotoPickerManager: NSObject {
     
 }
 
+/// MARK: - UIImagePickerControllerDelegate
+/// Apple documentation: https://developer.apple.com/documentation/uikit/uiimagepickercontrollerdelegate
 extension PhotoPickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    /// Tells the delegate that the user picked a still image or movie.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uiimagepickercontrollerdelegate/1619126-imagepickercontroller
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        // Cast image to UIImage
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         delegate?.manager(self, didPickImage: image)
     }
-    
-    
     
 }

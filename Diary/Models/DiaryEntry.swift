@@ -8,6 +8,7 @@
 
 import CoreData
 
+/// Diary Entry Managed Object for Core Data
 public class DiaryEntry: NSManagedObject {
     @NSManaged public var creationDate: NSDate
     @NSManaged public var updatedDate: NSDate?
@@ -19,6 +20,7 @@ public class DiaryEntry: NSManagedObject {
 
 extension DiaryEntry {
     
+    /// Transient properties for the section naming
     @objc var sectionIdentifier: String? {
         
         self.willAccessValue(forKey: "sectionIdentifier")
@@ -38,6 +40,7 @@ extension DiaryEntry {
         return "\(month) \(year)"
     }
     
+    /// Fetch request class function for DiaryEntry
     @nonobjc public class func fetchRequest() -> NSFetchRequest<DiaryEntry> {
         
         let request = NSFetchRequest<DiaryEntry>(entityName: String(describing: DiaryEntry.self))

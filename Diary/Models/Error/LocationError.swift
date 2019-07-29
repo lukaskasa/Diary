@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// LocationError enum
 enum LocationError: Error {
     case unknownError
     case disallowedByUser

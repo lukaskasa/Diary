@@ -11,10 +11,16 @@ import CoreData
 
 class EntryDatasource: NSObject, UITableViewDataSource {
     
+    // MARK: - Properties
     private let tableView: UITableView
     private let context: NSManagedObjectContext
     private let viewController: UIViewController
     
+    lazy var fetchedResultsController: DiaryEntryFetchedResultsController = {
+        return DiaryEntryFetchedResultsController(fetchedRequest: DiaryEntry.fetchRequest(), managedObjectContext: self.context, sectionNameKeyPath: "sectionIdentifier", tableView: self.tableView)
+    }()
+    
+    /// Enum for the results label in case no dataset can be returned
     enum ResultsLabel {
         case noEntries, noResults
         
@@ -29,10 +35,8 @@ class EntryDatasource: NSObject, UITableViewDataSource {
         }
     }
     
-    lazy var fetchedResultsController: DiaryEntryFetchedResultsController = {
-        return DiaryEntryFetchedResultsController(fetchedRequest: DiaryEntry.fetchRequest(), managedObjectContext: self.context, sectionNameKeyPath: "sectionIdentifier", tableView: self.tableView)
-    }()
-    
+
+    /// Initializes the Datasource for entries
     init(tableView: UITableView, context: NSManagedObjectContext, viewController: UIViewController) {
         self.tableView = tableView
         self.context = context
@@ -40,13 +44,17 @@ class EntryDatasource: NSObject, UITableViewDataSource {
         super.init()
     }
     
+    /// Get an object using the Fetched Results Controller given an IndexPath
     func object(at indexPath: IndexPath) -> DiaryEntry {
         return fetchedResultsController.object(at: indexPath)
     }
     
     // MARK: - Datasource Methods
     
+    /// The number of sections in the table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableview/1614924-numberofsections
     func numberOfSections(in tableView: UITableView) -> Int {
+        /// In case the are no sections a label is configured here
         var labelText: String = ResultsLabel.noEntries.label
         if fetchedResultsController.fetchRequest.predicate != nil {
             labelText = ResultsLabel.noResults.label
@@ -67,6 +75,8 @@ class EntryDatasource: NSObject, UITableViewDataSource {
         return fetchedResultsController.sections?.count ?? 0
     }
     
+    /// The methods adopted by the object you use to manage data and provide cells for a table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableviewdatasource
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let sectionName = fetchedResultsController.sections?[section].name else {
             return nil
@@ -75,6 +85,8 @@ class EntryDatasource: NSObject, UITableViewDataSource {
         return sectionName
     }
     
+    /// Tells the data source to return the number of rows in a given section of a table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614931-tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = fetchedResultsController.sections?[section] else {
             
@@ -84,12 +96,16 @@ class EntryDatasource: NSObject, UITableViewDataSource {
         return section.numberOfObjects
     }
     
+    /// Asks the data source for a cell to insert in a particular location of the table view.
+    /// Apple documentation: https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614861-tableview
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EntryCell.reuseIdentifer, for: indexPath) as! EntryCell
         
         return configureCell(cell, at: indexPath)
     }
     
+    /// Asks the data source to commit the insertion or deletion of a specified row in the receiver.
+    /// https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614871-tableview
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let diaryEntry = fetchedResultsController.object(at: indexPath)
         context.delete(diaryEntry)
@@ -97,7 +113,7 @@ class EntryDatasource: NSObject, UITableViewDataSource {
     }
     
     // MARK: - Helper Methods
-    
+    /// Configure a UITableViewCell given the cell and IndexPath
     func configureCell(_ cell: EntryCell, at indexPath: IndexPath) -> UITableViewCell {
         let diaryEntry = fetchedResultsController.object(at: indexPath)
         
