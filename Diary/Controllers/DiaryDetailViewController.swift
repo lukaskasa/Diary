@@ -116,7 +116,7 @@ class DiaryDetailViewController: UIViewController {
     @objc func saveEntry() {
         
         if diaryEntry == nil {
-            let newEntry = NSEntityDescription.insertNewObject(forEntityName: String(describing: DiaryEntry.self), into: managedObjectContext) as! DiaryEntry
+            let newEntry = DiaryEntry(context: managedObjectContext)
             
             newEntry.creationDate = NSDate()
             newEntry.updatedDate = NSDate()
